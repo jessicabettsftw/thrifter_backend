@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     @likes = Like.all
     render json: @likes
@@ -14,14 +15,14 @@ class LikesController < ApplicationController
     render json: @like
   end
 
-  def destroy
-    @like = Like.find(params[:id])
+  def delete
+    @like = Like.find_by(user_id: params[:user_id], find_id: params[:find_id])
     @like.destroy
   end
 
   private
 
   def like_params
-    require(:likes).permit(:user_id, :find_id)
+    params.require(:like).permit(:user_id, :find_id)
   end
 end

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :finds
   resources :users
   get 'likes/user/:user_id', to: 'likes#user_likes'
+  delete 'likes/user/:user_id/find/:find_id', to: 'likes#delete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
