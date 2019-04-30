@@ -6,7 +6,8 @@ class StoresController < ApplicationController
   end
 
   def show
-    @store = Store.find_by(name: params[:name])
+    @store = Store.find(params[:id])
+    render json: @store
   end
 
   def create
