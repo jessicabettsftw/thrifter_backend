@@ -10,6 +10,11 @@ class LikesController < ApplicationController
     render json: @likes
   end
 
+  def find_likes
+    @likes = Like.where(find_id: params[:find_id])
+    render json: @likes
+  end
+
   def create
     @like = Like.create(like_params)
     render json: @like

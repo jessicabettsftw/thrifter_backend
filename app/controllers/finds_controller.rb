@@ -1,4 +1,5 @@
 class FindsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     @finds = Find.all
     render json: @finds
@@ -32,7 +33,7 @@ class FindsController < ApplicationController
   private
 
   def find_params
-    require(:find).permit(:user_id, :store_id, :photo, :price, :brand, :description)
+    params.require(:find).permit(:user_id, :store_id, :photo, :price, :brand, :description)
   end
 
 end
