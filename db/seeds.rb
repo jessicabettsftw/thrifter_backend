@@ -5,7 +5,7 @@ require 'faker'
 
 
 def seed_users()
-  User.create(username: "jekka", name: "jessica", password: "cats", email: "jessiaannbettsis@gmail.com", zip:98010, image: "https://scontent-ort2-2.cdninstagram.com/vp/4c0d3ea93146c0d953756dfcd1307c33/5D62B20E/t51.2885-15/sh0.08/e35/s750x750/18444620_1280128975441732_4091099801347686400_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com")
+  User.create(username: "jekka", name: "jessica", password: "cats", email: "jessiaannbettsis@gmail.com", zip:98010, image: "https://scontent-ort2-2.cdninstagram.com/vp/2caa24e5ad88e58c012a04550cdc8493/5D7082B4/t51.2885-15/e35/52909898_2312312622424463_8539354381621977442_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com")
   20.times do
     name = Faker::Name.name
     zip = Faker::Address.zip

@@ -13,6 +13,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    @user = User.find_by(email: params[:email], password: params[:password])
+    if @user.valid?
+      render json: @user
+    end
+  end
+
   def create
     @user = User.create(user_params)
     if @user.valid?
