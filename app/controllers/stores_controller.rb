@@ -11,7 +11,7 @@ class StoresController < ApplicationController
   end
 
   def create
-    @store = User.create(store_params)
+    @store = User.find_or_create_by(store_params)
     if @store.valid?
       render json: @store
     end
@@ -20,7 +20,17 @@ class StoresController < ApplicationController
   private
 
   def store_params
-    params.require(:store).permit(:name, :phone_number, :street, :city, :state, :zip)
+    params.require(:store).permit(
+      :name
+    , :phone_number
+    , :zip
+    , :street
+    , :city
+    , :state
+    , :country
+    , :latitude
+    , :longitude
+    , :rating)
   end
 
 

@@ -33,10 +33,14 @@ ActiveRecord::Schema.define(version: 2019_04_25_221437) do
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
+    t.string "zip"
     t.string "street"
     t.string "city"
     t.string "state"
-    t.integer "zip"
+    t.string "country"
+    t.integer "latitude"
+    t.integer "longitude"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
