@@ -10,6 +10,11 @@ class FindsController < ApplicationController
     render json: @find
   end
 
+  def user_finds
+    @finds = Find.where(user_id: params[:user_id])
+    render json: @finds
+  end
+
   def create
     @find = Find.create(find_params)
     if @find.valid?

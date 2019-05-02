@@ -15,6 +15,12 @@ class LikesController < ApplicationController
     render json: @likes
   end
 
+  def liked_finds
+    @likes = Like.where(user_id: params[:user_id])
+    @liked_finds = @likes.map { |like| like.find }
+    render json: @liked_finds
+  end
+
   def create
     @like = Like.create(like_params)
     render json: @like
