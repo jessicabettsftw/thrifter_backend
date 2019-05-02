@@ -30,9 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.update(password: params[:password], bio: params[:bio], email: params[:email], image: params[:image], name: params[:name], zip: params[:zip])
-    if @user.valid?
-      render json: @user
-    end
+    render json: @user
   end
 
   def destroy

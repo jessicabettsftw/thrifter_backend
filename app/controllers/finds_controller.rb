@@ -23,7 +23,7 @@ class FindsController < ApplicationController
   end
 
   def update
-    @find = Trainer.find_by(id: params[:id])
+    @find = Find.find_by(id: params[:id])
     @find.update(find_params)
     if @find.valid?
       render json: @find
