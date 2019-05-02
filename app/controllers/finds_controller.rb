@@ -31,7 +31,7 @@ class FindsController < ApplicationController
   end
 
   def destroy
-    @find = Trainer.find_by(id: params[:id])
+    @find = Find.find_by(id: params[:id])
     @find.destroy
   end
 
