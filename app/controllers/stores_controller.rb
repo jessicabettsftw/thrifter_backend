@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
   def index
     @stores = Store.all
     render json: @stores
@@ -11,7 +11,7 @@ class StoresController < ApplicationController
   end
 
   def create
-    @store = User.find_or_create_by(store_params)
+    @store = Store.find_or_create_by(store_params)
     if @store.valid?
       render json: @store
     end
@@ -20,17 +20,7 @@ class StoresController < ApplicationController
   private
 
   def store_params
-    params.require(:store).permit(
-      :name
-    , :phone_number
-    , :zip
-    , :street
-    , :city
-    , :state
-    , :country
-    , :latitude
-    , :longitude
-    , :rating)
+    params.require(:store).permit(:name, :phone_number, :zip, :street, :city, :state, :country, :latitude, :longitude, :rating)
   end
 
 
