@@ -8,8 +8,8 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.string :country
-      t.integer :latitude
-      t.integer :longitude
+      t.float :latitude
+      t.float :longitude
       t.integer :rating
 
       t.timestamps

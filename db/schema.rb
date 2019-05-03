@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2019_04_25_221437) do
     t.string "city"
     t.string "state"
     t.string "country"
-    t.integer "latitude"
-    t.integer "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,10 +47,9 @@ ActiveRecord::Schema.define(version: 2019_04_25_221437) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "name"
     t.string "password"
     t.string "email"
-    t.integer "zip"
+    t.string "zip"
     t.text "bio"
     t.string "image"
     t.datetime "created_at", null: false

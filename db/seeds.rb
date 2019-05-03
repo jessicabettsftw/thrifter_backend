@@ -5,16 +5,15 @@ require 'faker'
 
 
 def seed_users()
-  User.create(username: "jekka", name: "jessica", password: "cats", email: "jessiaannbettsis@gmail.com", zip:98010, image: "https://scontent-ort2-2.cdninstagram.com/vp/2caa24e5ad88e58c012a04550cdc8493/5D7082B4/t51.2885-15/e35/52909898_2312312622424463_8539354381621977442_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com")
+  User.create(username: "jekka", password: "cats", email: "jessiaannbettsis@gmail.com", zip:98010, image: "https://scontent-ort2-2.cdninstagram.com/vp/2caa24e5ad88e58c012a04550cdc8493/5D7082B4/t51.2885-15/e35/52909898_2312312622424463_8539354381621977442_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com")
   20.times do
-    name = Faker::Name.name
     zip = Faker::Address.zip
     email = Faker::Internet.email
     password = Faker::Games::Pokemon.name
     username = Faker::TvShows::GameOfThrones.character
     bio = Faker::Hipster.paragraph(4)
     image = Faker::Avatar.image
-    User.create(username: username, name: name, password: password, email: email, zip: zip, bio: bio, image: image)
+    User.create(username: username, password: password, email: email, zip: zip, bio: bio, image: image)
   end
 end
 

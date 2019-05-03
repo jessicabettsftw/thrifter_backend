@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update(password: params[:password], bio: params[:bio], email: params[:email], image: params[:image], name: params[:name], zip: params[:zip])
+    @user.update(password: params[:password], bio: params[:bio], email: params[:email], image: params[:image], zip: params[:zip])
     render json: @user
   end
 
