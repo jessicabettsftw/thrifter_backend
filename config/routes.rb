@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'likes/finds/:user_id', to: 'likes#liked_finds'
   post '/signup', to: 'users#create'
   post '/login', to: 'auth#create'
+  post '/photos', to: 'photos#upload_file'
   get 'users/email/:email/password/:password', to: 'users#login'
   delete 'likes/user/:user_id/find/:find_id', to: 'likes#delete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
