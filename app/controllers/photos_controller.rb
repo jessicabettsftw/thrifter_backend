@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   skip_before_action :verify_authenticity_token
+  skip_before_action :authorized, only: [:upload_file]
 
   def upload_file
     # obj = S3_BUCKET.object
