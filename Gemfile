@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 0.18.4'
 # gem 'sqlite3'
+gem 'dotenv-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -31,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem "rack-cors"
-
+gem 'aws-sdk'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'faker'
