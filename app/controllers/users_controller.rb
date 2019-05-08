@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.valid?
-      name = params[:image_name]
+      name = params[:image].name
       base64 = params[:image]
       body = Base64.decode64(base64.split(',')[1])
 
@@ -35,7 +35,6 @@ class UsersController < ApplicationController
       @user = User.update(image: S3_BUCKET.object(name).presigned_url(:get))
       @token = encode_token(user_id: @user.id)
       render json: { user: UsersSerializer.new(@user), jwt: @token }, status: :created
-      # render json: @user
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
