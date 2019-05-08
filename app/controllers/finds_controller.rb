@@ -16,21 +16,7 @@ class FindsController < ApplicationController
   end
 
   def create
-    name = params[:find][:name]
-    base64 = params[:find][:file]
-    body = Base64.decode64(base64.split(',')[1])
-
-    # Create the object to upload
-    obj = S3_BUCKET.object(name).put(
-      body: body,
-      # acl: 'public-read',
-      content_type: 'image/jpeg',
-      content_encoding: 'base64'
-    )
-    # :user_id, :store_id, :photo, :price, :brand, :description
-    @find = Find.create(user_id: params[:find][:user_id],
-      store_id: params[:find][:user_id], photo: image: S3_BUCKET.object(name).presigned_url(:get),
-       brand: params[:find][:brand], description: params[:find][:description])
+    @find = Find.create(find_params)
     if @find.valid?
       render json: @find
     end
