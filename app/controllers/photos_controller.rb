@@ -3,7 +3,7 @@ require 'base64';
 
 class PhotosController < ApplicationController
   skip_before_action :verify_authenticity_token
-  # skip_before_action :authorized, only: [:upload_file]
+  skip_before_action :authorized, only: [:upload_file]
 
   def upload_file
 
