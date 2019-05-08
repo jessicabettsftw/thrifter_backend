@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     # Create the object to upload
     obj = S3_BUCKET.object(name).put(
       body: body,
-      # acl: 'public-read',
+      acl: 'public-read',
       content_type: 'image/jpeg',
       content_encoding: 'base64'
     )
