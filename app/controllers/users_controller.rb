@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         content_type: 'image/jpeg',
         content_encoding: 'base64'
       )
-      # @user = User.update(image: S3_BUCKET.object(name).presigned_url(:get))
+      @user = User.update(image: S3_BUCKET.object(name).presigned_url(:get))
       @token = encode_token(user_id: @user.id)
       render json: { user: UsersSerializer.new(@user), jwt: @token }, status: :created
       # render json: @user
