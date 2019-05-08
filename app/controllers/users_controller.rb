@@ -19,7 +19,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    name = params[:name]
+    base64 = params[:file]
+    body = Base64.decode64(base64.split(',')[1])
+
+    # Create the object to upload
+    obj = S3_BUCKET.object(name).put(
+      body: body,
+      # acl: 'public-read',
+      content_type: 'image/jpeg',
+      content_encoding: 'base64'
+    )
+
+    @user = User.create(image: S3_BUCKET.object(name).presigned_url(:get), password: params[:password], email: params[:email])
     if @user.valid?
       @token = encode_token(user_id: @user.id)
       render json: { user: UsersSerializer.new(@user), jwt: @token }, status: :created
