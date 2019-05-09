@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_04_25_221437) do
     t.integer "user_id"
     t.integer "store_id"
     t.string "photo"
-    t.integer "price"
+    t.money "price", scale: 2
     t.string "brand"
     t.text "description"
     t.datetime "created_at", null: false

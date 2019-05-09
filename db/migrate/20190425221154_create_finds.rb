@@ -4,7 +4,7 @@ class CreateFinds < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :store_id
       t.string :photo
-      t.integer :price
+      t.money :price
       t.string :brand
       t.text :description
 
