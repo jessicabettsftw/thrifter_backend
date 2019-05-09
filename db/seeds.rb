@@ -9,7 +9,7 @@ require 'faker'
 
 
 def seed_users_and_finds()
-  jekka = User.create(username: "jekka", password: "cats", email: "jessiaann@gmail.com", bio: "i like cats", zip:98010, image: "https://scontent-ort2-2.cdninstagram.com/vp/2caa24e5ad88e58c012a04550cdc8493/5D7082B4/t51.2885-15/e35/52909898_2312312622424463_8539354381621977442_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com")
+  jekka = User.create(username: "jekka", password: "cats", email: "jessiaann@gmail.com", bio: "i like cats", zip:98038, image: "https://scontent-ort2-2.cdninstagram.com/vp/2caa24e5ad88e58c012a04550cdc8493/5D7082B4/t51.2885-15/e35/52909898_2312312622424463_8539354381621977442_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com")
     Find.create(user_id: jekka.id, store_id: Store.all.sample.id, price: 5.99, description: "makes me feel fancy and quirky", brand: "All Week Long", photo: "https://scontent-sea1-1.cdninstagram.com/vp/24c8f6dda7b5f4f5436757d252e5e734/5D680AAF/t51.2885-15/sh0.08/e35/p750x750/59129622_606603019843919_4508561298036745599_n.jpg?_nc_ht=scontent-sea1-1.cdninstagram.com")
     Find.create(user_id: jekka.id, store_id: Store.all.sample.id, price: 4.99, description: "fuzzy sweater", brand: "Rosanna", photo: "https://scontent-ort2-2.cdninstagram.com/vp/291bd00d13c7ebed00859937243231d8/5D54E3FE/t51.2885-15/e35/p1080x1080/59850636_2363573460579574_3810081140701193926_n.jpg?_nc_ht=scontent-ort2-2.cdninstagram.com")
     Find.create(user_id: jekka.id, store_id: Store.all.sample.id, price: 3.99, description: "super boho summer pants that are thin, breezy and almost look like jammies", brand: "None", photo: "https://scontent-sea1-1.cdninstagram.com/vp/5ce3fc838cc9014558451d9f02786e80/5D685C7E/t51.2885-15/e35/59434574_453899638749110_2538917082199679477_n.jpg?_nc_ht=scontent-sea1-1.cdninstagram.com")
@@ -52,6 +52,7 @@ def seed_users_and_finds()
 end
 
 def seed_stores()
+  coordinates = [[47.461836, -122.335461], [47.44364, -122.25399], [47.359423, -122.021071], [47.461836, -122.335461], [47.1993929270676, -121.981164962053], [48.74775, -122.4784]]
   store_names = ['Goodwill', 'Platos Closet', 'Value Village', 'Savers', 'St.Vincent Depaul', 'Buffalo Exchange']
   10.times do
     name = store_names.sample
@@ -60,7 +61,7 @@ def seed_stores()
     state = Faker::Address.state
     street = Faker::Address.street_address
     phone = Faker::PhoneNumber.phone_number
-    Store.create(name: name, zip: zip, city: city, state: state, street: street, phone_number: phone)
+    Store.create(name: name, zip: zip, city: city, state: state, street: street, phone_number: phone, longitude: coordinates.sample[1], latitude: coordinates.sample[0])
   end
 end
 
